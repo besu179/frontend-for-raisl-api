@@ -1,21 +1,27 @@
 body {
-  font-family: Arial, sans-serif;
-  background: #f4f6f8;
+  font-family: 'Inter', 'Segoe UI', Arial, sans-serif;
+  background: linear-gradient(135deg, #e0e7ff 0%, #f4f6f8 100%);
   margin: 0;
   padding: 0;
+  min-height: 100vh;
 }
 
 header {
-  background: #4f8cff;
+  background: linear-gradient(90deg, #4f8cff 60%, #2563eb 100%);
   color: #fff;
-  padding: 1.5rem 0;
+  padding: 2rem 0 1.2rem 0;
   text-align: center;
+  box-shadow: 0 2px 12px rgba(79,140,255,0.10);
+  border-bottom-left-radius: 18px;
+  border-bottom-right-radius: 18px;
 }
 
 .main-title {
   margin: 0;
-  font-size: 2rem;
-  letter-spacing: 1px;
+  font-size: 2.3rem;
+  letter-spacing: 1.5px;
+  font-weight: 700;
+  text-shadow: 0 2px 8px rgba(79,140,255,0.10);
 }
 
 main {
@@ -23,26 +29,29 @@ main {
   justify-content: center;
   align-items: flex-start;
   min-height: 60vh;
-  padding: 2rem 0;
+  padding: 2.5rem 0;
 }
 
 .todo-list {
   list-style: none;
   padding: 0;
   margin: 0;
-  max-width: 400px;
+  max-width: 420px;
   width: 100%;
   background: #fff;
-  border-radius: 8px;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.07);
+  border-radius: 16px;
+  box-shadow: 0 4px 24px rgba(0,0,0,0.10);
+  overflow: hidden;
 }
 
 .todo-item {
-  padding: 14px 22px;
+  padding: 18px 28px;
   border-bottom: 1px solid #e0e0e0;
-  font-size: 1.1em;
-  color: #333;
-  transition: background 0.2s;
+  font-size: 1.13em;
+  color: #222;
+  background: #fff;
+  transition: background 0.2s, box-shadow 0.2s;
+  position: relative;
 }
 
 .todo-item:last-child {
@@ -51,69 +60,92 @@ main {
 
 .todo-item:hover {
   background: #f0f4ff;
+  box-shadow: 0 2px 8px rgba(79,140,255,0.08);
+  z-index: 1;
 }
 
 .error-message {
   color: #fff;
-  background: #e74c3c;
+  background: linear-gradient(90deg, #e74c3c 80%, #ff7675 100%);
   padding: 14px 22px;
-  border-radius: 4px;
+  border-radius: 6px;
   text-align: center;
   font-weight: bold;
+  box-shadow: 0 2px 8px rgba(231,76,60,0.10);
+  margin-bottom: 1.2rem;
 }
 
 footer {
   text-align: center;
-  padding: 1rem 0;
+  padding: 1.2rem 0 0.7rem 0;
   color: #888;
-  font-size: 0.95rem;
+  font-size: 1rem;
+  letter-spacing: 0.2px;
 }
-
 
 .form {
   display: flex;
   justify-content: center;
-  margin-bottom: 1.5rem;
+  margin-bottom: 2rem;
 }
 
 #todo_form {
   display: flex;
-  gap: 0.5rem;
+  gap: 0.7rem;
   background: #fff;
-  padding: 1rem 1.5rem;
-  border-radius: 8px;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.07);
+  padding: 1.2rem 2rem;
+  border-radius: 12px;
+  box-shadow: 0 2px 12px rgba(79,140,255,0.10);
+  align-items: center;
 }
 
 #todo_input {
   flex: 1;
-  padding: 0.6rem 1rem;
-  border: 1px solid #cfd8dc;
-  border-radius: 4px;
-  font-size: 1rem;
+  padding: 0.7rem 1.2rem;
+  border: 1.5px solid #cfd8dc;
+  border-radius: 6px;
+  font-size: 1.07rem;
   outline: none;
-  transition: border 0.2s;
+  background: #f8fafc;
+  transition: border 0.2s, box-shadow 0.2s;
+  box-shadow: 0 1px 4px rgba(79,140,255,0.04);
 }
 
 #todo_input:focus {
   border-color: #4f8cff;
+  box-shadow: 0 2px 8px rgba(79,140,255,0.10);
+  background: #fff;
 }
 
 .btn,
 .submit-btn {
-  background: #4f8cff;
+  background: linear-gradient(90deg, #4f8cff 60%, #2563eb 100%);
   color: #fff;
   border: none;
-  padding: 0.6rem 1.2rem;
-  border-radius: 4px;
-  font-size: 1rem;
+  padding: 0.7rem 1.5rem;
+  border-radius: 6px;
+  font-size: 1.07rem;
   cursor: pointer;
-  transition: background 0.2s, box-shadow 0.2s;
-  box-shadow: 0 1px 4px rgba(79,140,255,0.08);
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  transition: background 0.2s, box-shadow 0.2s, transform 0.1s;
+  box-shadow: 0 2px 8px rgba(79,140,255,0.10);
 }
 
 .btn:hover,
 .submit-btn:hover {
-  background: #2563eb;
+  background: linear-gradient(90deg, #2563eb 80%, #4f8cff 100%);
+  box-shadow: 0 4px 16px rgba(79,140,255,0.15);
+  transform: translateY(-2px) scale(1.03);
 }
 
+.btn-delete:hover {
+  background: linear-gradient(90deg, #e74c3c 60%, #ff7675 100%);
+  color: #fff;
+  padding: 0.5rem 1.2rem;
+  border-radius: 6px;
+  font-size: 1.07rem;
+  cursor: pointer;
+  letter-spacing: 0.5px;
+  transition: background 0.2s, box-shadow 0.2s, transform 0.1s;
+}

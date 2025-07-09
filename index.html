@@ -4,31 +4,33 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="style.css" />
-    <title>Document</title>
+    <title>rails ex</title>
   </head>
   <body>
     <header>
       <h1 class="main-title">A Simple Todo App</h1>
     </header>
     <main>
-      <div class="form">
-        <form id="todo_form">
-          <input
-            type="text"
-            id="todo_input"
-            name="todo[task]"
-            placeholder="Enter a new todo"
-            required
-          />
-          <input
-            type="submit"
-            value="Add Todo"
-            class="btn submit-btn"
-            onclick="addTodo();"
-          />
-        </form>
+      <div>
+        <div class="form">
+          <form id="todo_form">
+            <input
+              type="text"
+              id="todo_input"
+              name="todo[task]"
+              placeholder="Enter a new todo"
+              required
+            />
+            <input
+              type="submit"
+              value="Add Todo"
+              class="btn submit-btn"
+              onclick="addTodo();"
+            />
+          </form>
+        </div>
+        <ul id="todo-container" class="todo-list"></ul>
       </div>
-      <ul id="todo-container" class="todo-list"></ul>
     </main>
     <footer>
       <script src="script.js"></script>

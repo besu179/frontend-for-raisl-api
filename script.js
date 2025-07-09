@@ -6,7 +6,6 @@ async function fetchData() {
     throw new Error(`HTTP error! status: ${response.status}`);
   }
   const data = await response.json();
-  console.log(data);
   return data;
 }
 
@@ -17,7 +16,7 @@ function populateUi() {
       todoList.innerHTML = ""; // Clear any existing items
       todos.forEach((todo) => {
         const li = document.createElement("li");
-        li.textContent = todo.task; // Adjust property name as needed
+        li.innerHTML = `${todo.id} ${todo.task} <button class='btn btn-delete' onclick="deleteTask(${todo.id})">Delete</button>`;
         li.className = "todo-item";
         todoList.appendChild(li);
       });
@@ -49,4 +48,28 @@ async function addTodo(e) {
   } else {
     alert("Failed to add todo.");
   }
+}
+
+
+function deleteTask(id) {
+    fetch(`http://127.0.0.1:3001/todos/${id}`, {
+        method: "DELETE",
+        headers: {
+            "Content-Type": "application/json"
+        }
+    })
+    .then(response => {
+        if (response.ok) {
+            alert(`Todo with id ${id} deleted successfully.`);
+            // Optionally remove the element from the DOM:
+            populateUi();
+        } else {
+            alert("Failed to delete the todo.");
+        }
+    })
+    .catch(error => {
+        console.error("Error deleting task:", error);
+    });
+
+    populateUi(); 
 }
