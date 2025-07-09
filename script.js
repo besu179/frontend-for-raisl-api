@@ -29,6 +29,24 @@ function populateUi() {
     });
 }
 
-function addTodo() {
-  alert("add btm clicked");
+document.getElementById("todo_form").addEventListener("submit", addTodo);
+
+async function addTodo(e) {
+  e.preventDefault();
+  const input = document.getElementById("todo_input");
+  const task = input.value.trim();
+  if (!task) return;
+
+  const response = await fetch("http://127.0.0.1:3001/todos", {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({ task }),
+  });
+
+  if (response.ok) {
+    input.value = "";
+    populateUi(); // Refresh the todo list
+  } else {
+    alert("Failed to add todo.");
+  }
 }
