@@ -30,8 +30,7 @@ function populateUi() {
 
 document.getElementById("todo_form").addEventListener("submit", addTodo);
 
-async function addTodo(e) {
-  e.preventDefault();
+async function addTodo() {
   const input = document.getElementById("todo_input");
   const task = input.value.trim();
   if (!task) return;
