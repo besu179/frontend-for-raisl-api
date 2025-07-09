@@ -1,4 +1,3 @@
-
 document.addEventListener("DOMContentLoaded", populateUi);
 
 async function fetchData() {
@@ -28,4 +27,8 @@ function populateUi() {
       todoList.innerHTML = `<li class="error-message">Error loading todos: ${error.message}</li>`;
       todoList.className = "todo-list";
     });
+}
+
+function addTodo() {
+  alert("add btm clicked");
 }
